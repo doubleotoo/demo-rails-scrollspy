@@ -1,10 +1,11 @@
-$ rvm ruby-1.9.2-p290@justintoo.com-rails
+### [Rails 3, Compass, and (Twitter) Bootstrap Tutorial](http://nepalonrails.tumblr.com/post/13957284625/revisited-rails-3-1-x-with-compass-sass-and)
+
+```bash
+$ rvm ruby-1.9.2-p290@rails-compass_twitter_bootstrap-demo
 $ rvm do gem install bundler
+```
 
-
-Rails 3, Compass, and (Twitter) Bootstrap
-http://nepalonrails.tumblr.com/post/13957284625/revisited-rails-3-1-x-with-compass-sass-and
-
+### $RAILS_APP/app/assets/stylesheets/application.css.scss
 ```sass
 /*
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
@@ -16,7 +17,7 @@ http://nepalonrails.tumblr.com/post/13957284625/revisited-rails-3-1-x-with-compa
 @import "compass/css3";
 @import "base";
 ```
-
+### $RAILS_APP/app/assets/javascripts/application.js
 ```javascript
 // This is a manifest file that'll be compiled into including all the files listed below.
 // Add new JavaScript/Coffee code in separate files in this directory and they'll automatically
@@ -27,15 +28,8 @@ http://nepalonrails.tumblr.com/post/13957284625/revisited-rails-3-1-x-with-compa
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-//= require bootstrap-alerts
-//= require bootstrap-dropdown
-//= require bootstrap-modal
-// Twipsy has to be loaded before popover,
-// otherwise causes a JS error.
-//= require bootstrap-twipsy
-//= require bootstrap-popover
+
 //= require bootstrap-scrollspy
-//= require bootstrap-tabs
 ```
 
 ``` bash
@@ -43,18 +37,18 @@ $ RAILS_ENV=development bundle exec rake assets:precompile
 $ RAILS_ENV=production bundle exec rake assets:precompile
 ```
 
-Important: If you add a new Javascript or CSS file, you must compile the code so it will be
-available in public/assets for production.
+__Important__: If you add a new Javascript or CSS file, you must precompile the code so it will be
+available in `public/assets` for production.
 
-Gemfile::
-
+### HAML
+```ruby
   gem "haml-rails"
+```
 
   ```bash
   $ rails generate controller home index
   ```
 
   * Creates Home#index
-    Controller named Home with a method called index
-
+    (i.e. a controller named `Home` with a method called `index`)
 
