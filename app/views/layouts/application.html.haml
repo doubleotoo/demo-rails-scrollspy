@@ -6,11 +6,7 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
 
-    :javascript
-      $('navbar').scrollspy();
-
-
-  %body(data-spy="scroll")
+  %body
     %div(class="navbar navbar-fixed-top")
       %div(class="navbar-inner")
         %div(class="container")
@@ -19,8 +15,8 @@
             %span(class="icon-bar")
             %span(class="icon-bar")
           %a(class="brand" href="#") Project name
-          %div(id="navbar" class="nav-collapse")
-            %ul(class="nav")
+          %div(class="nav-collapse")
+            %ul(id="navbar" class="nav")
               %li(class="active")
                 %a(href="#home") Home
               %li
@@ -28,7 +24,7 @@
               %li
                 %a(href="#about") About
               %li
-                %a(href="#end") About
+                %a(href="#end") End
 
     %div id="home" class="container"
 
@@ -47,4 +43,12 @@
     #end
     - (0...2).each do |i|
       %p= 'End'
+
+    :javascript
+      $('#navbar').onePageNav({
+        currentClass: 'active',
+        changeHash: true,
+        scrollSpeed: 750,
+        easing: 'swing'
+      });
 
